@@ -68,40 +68,12 @@ def stock_info_30s(id):
 #----主程式------------------------------------------------------
 # 設定結束或取消的方式
 # 抓開盤時間:9:00~ 13:00 每30秒一次
-schedule.every(30).seconds.do(stock_info_30s, id="2330,TW").until("13:30")
+schedule.every(30).seconds.do(stock_info_30s, id="2330.TW").until("13:30")
 
 #檢查並執行所有已到時間的任務
 while True:
     schedule.run_pending()
     time.sleep(1)
 
-
-
-
-
 # stock_info("3037.TW")
-#------------------------------------
-
-# def ticker_summary(id):
-#     tick = yf.Ticker(id)
-#     info = tick.fast_info
-#     #print( info )   # 今日最高最低 開盤/收盤 目前行情
-#     print("fast_info 通常會與即時狀況有時間差")
-#     print(f'開盤: {info.open}')
-#     print(f'今日最高: {info.day_high}')
-#     print(f'今日最低: {info.day_low}')
-#     print(f'目前價格: {info.last_price}')
-
-# print("------------- TSMC -------------")
-# ticker_summary("2330.TW")
-# print("------------- 欣興-------------")
-# ticker_summary("3037.TW")
-#---------------------------------------------------
-# def stock_info(id):
-#     tick = yf.Ticker(id)
-#     info = tick.info
-#     print(f'公司名稱{info.get("shortName")}')
-#     print(f'最新訊息{info.get("message")}')
-#     print(f'今日市場均價{info.get("regularMarketPrice")}')
-#     print(f'今年度EPS{info.get("priceEpsCurrentYear")}')
-#     print(f'今日行情{info.get("regularMarkDayRange")}')   
+#-------------------------------------------------------------------------------------
